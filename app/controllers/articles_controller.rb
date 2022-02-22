@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
   def index
     @articles = Article.all
   end
@@ -42,11 +42,11 @@ class ArticlesController < ApplicationController
 
   private
 
-  def set_task
+  def set_article
     @article = Article.find(params[:id])
   end
 
-  def task_params
+  def article_params
     params.require(:article).permit(:title, :content)
   end
 end
